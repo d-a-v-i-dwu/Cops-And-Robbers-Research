@@ -1,0 +1,1 @@
+A summer research project regarding cops and robbers games on graphs, in particular trees. Classes to simulate games on specified finite and infinite trees and certain robber/cop movement patterns, and sqlite3 compatibility to store simulated games to compare. 
