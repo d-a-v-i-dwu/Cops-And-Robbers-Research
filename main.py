@@ -89,11 +89,15 @@ def play_infinite_game(start_distance: int = 2, cop_tipsiness: float = 0, robber
         if start_distance % 2 == 0:
             expected_average = start_distance / (2 * ((cop_tipsiness + robber_tipsiness) / min_degree - cop_tipsiness))
             if print_individual:
-                print(f"s/(2((x_c+x_r)/r)) = {expected_average}")
+                print(f"s/(2((x_c+x_r)/r-x_c)) = {expected_average}")
         else:
             expected_average = (start_distance - 1) / (2 * ((cop_tipsiness + robber_tipsiness) / min_degree - cop_tipsiness)) + 1
             if print_individual:
                 print(f"(s-1)/(2((x_c+x_r)/r-x_c)) + 1 = {expected_average}")
+    
+    if expected_average <= 0:
+        print("The game is not cop-win.")
+        return
 
 
     cop_start_node = InfinityNode(None, min_degree, max_degree)
